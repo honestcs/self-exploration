@@ -1,0 +1,7 @@
+interface:
+  display_name: "自我探索"
+  short_description: "长期自我探索、成长档案和阶段性地图。"
+  default_prompt: "使用 $self-exploration 帮我收集基础信息，并开始一次长期自我探索。"
+
+policy:
+  allow_implicit_invocation: true

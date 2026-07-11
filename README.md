@@ -1,46 +1,21 @@
-# Self Exploration Skill
+﻿# Self Exploration Skill
 
-用于中文长期自我探索与成长陪伴的skill。
+这是一个用于中文长期自我探索与成长陪伴的编排型 skill。
 
-这个 skill 不是心理治疗、诊断工具或玄学结论生成器，而是一个结构化的长期反思流程。它通过基础档案、真实经历、能量审计、天赋考古、理想生活原型、测评 / 命盘辅助交叉分析、阶段性总结和行动实验，帮助用户逐步看清自己的稳定模式与下一步行动。
+它不再把所有逻辑堆在一个超大 `SKILL.md` 里，而是拆成“一个总控 skill + 多个单一职责小 skill”的结构。这样更符合以下约束：
+
+- 单一职责：每个小 skill 只处理一个阶段或一种分析任务。
+- 触发清晰：总控 skill 负责路由，小 skill 负责明确场景。
+- 结构固定：每个小 skill 都使用 `Description + Rule + Steps + Examples + FAQ`。
+- 易于维护：新增或修改某个探索模块时，不需要重写整个 skill。
 
 ## 适用场景
 
-- 收集并确认个人基础档案。
-- 探索天赋、优势、无意识胜任区和回血型行动。
-- 梳理当前现状、职业方向、财富目标、关系模式、价值观和身份认同。
-- 逐步浮现理想生活原型，而不是一开始就强行定义理想人生。
-- 将 MBTI、盖洛普、九型、八字、星盘、简历、日记等资料作为辅助视角，与真实经历交叉验证。
-- 生成阶段性自我成长地图，并沉淀为 Markdown 文件。
-- 根据真实使用体验继续改进 skill 本身。
-
-## 核心原则
-
-- 真实经历优先于测评和命盘。
-- 先收集基础信息并请用户确认，再进入正式探索。
-- 每轮只问一个主要问题，避免问卷式轰炸。
-- 用户回答后先反馈线索，再追问下一个具体问题。
-- 温暖陪伴不等于一味肯定；必要时应温和校准用户叙述中的矛盾、盲区、代价和未验证假设。
-- 所有判断都应以假设形式表达，并尽量给出依据、可信度和待验证点。
-- 阶段性总结必须创建 Markdown 文件，便于后续回顾和迭代。
-- 禁止宿命论表达，不说“你命里注定”“你只能”“你一定适合”。
-
-## 标准流程
-
-```text
-第 1 步：启动、基础信息收集与确认
-第 2 步：选择探索切入点或全面探索
-第 3 步：自我现状扫描
-第 4 步：天赋考古
-第 5 步：阴影与嫉妒线索挖掘
-第 6 步：理想生活逐步浮现
-第 7 步：测评 / 命盘 / 资料辅助交叉分析
-第 8 步：成长档案沉淀
-第 9 步：阶段性自我成长地图
-第 10 步：行动实验与下一轮复盘
-```
-
-流程不是一次性完成的。用户可以停留在任一模块，也可以直接要求阶段性总结或 skill 改进。
+- 想开始一轮长期自我探索
+- 想先建立基础档案，再逐步推进
+- 想只聚焦某个主题，例如天赋、关系、理想生活、行动实验
+- 想生成阶段性成长地图并保存为 Markdown
+- 想根据真实使用体验继续改进该 skill
 
 ## 目录结构
 
@@ -48,49 +23,60 @@
 self-exploration/
 ├── SKILL.md
 ├── README.md
-└── references/
+├── agents/
+│   └── openai.yaml
+└── skills/
+    ├── foundation-intake/
+    ├── exploration-routing/
+    ├── current-state-scan/
+    ├── talent-archaeology/
+    ├── shadow-patterns/
+    ├── ideal-life-prototype/
+    ├── evidence-integration/
+    ├── action-experiments/
+    ├── growth-archive/
+    ├── stage-map-writer/
+    └── skill-improvement/
 ```
 
-- `SKILL.md`：Agent实际加载和执行的核心说明，包含触发描述、原则、流程、模板和问题池。
-- `README.md`：给维护者和使用者阅读的概览，不应替代 `SKILL.md`。
-- `references/`：可选参考资料目录，用于放置更细的提问方法、案例或扩展材料。
+## 模块分层
+
+- 入口层：`foundation-intake`、`exploration-routing`
+- 洞察层：`current-state-scan`、`talent-archaeology`、`shadow-patterns`、`ideal-life-prototype`、`evidence-integration`
+- 推进层：`action-experiments`
+- 沉淀层：`growth-archive`、`stage-map-writer`
+- 演化层：`skill-improvement`
+
+## 设计原则
+
+- 真实经历优先于标签、测评和命盘。
+- 一轮只推进一个主要问题。
+- 所有判断都用假设表达，而不是定论。
+- 阶段性总结必须落地为 Markdown 文件。
+- 允许用户跳过不想提供的资料，也允许只使用单个模块。
 
 ## 使用方式
 
-在对话中明确调用：
+直接调用：
 
 ```text
-使用 self-exploration 帮我进行一次自我探索。
+使用 self-exploration 帮我开始一轮自我探索。
 ```
 
-或提出符合描述的请求，例如：
+或提出符合场景的请求：
 
 ```text
-帮我梳理我的天赋和职业方向。
-```
-
-```text
-继续探索我的理想生活。
+帮我梳理我到底擅长什么，以及什么事情会让我回血。
 ```
 
 ```text
-根据这次使用体验，改进 self-exploration 这个 skill。
+帮我做最近一个月的阶段性成长总结。
 ```
 
-## 阶段性总结
+## 维护建议
 
-当用户要求阶段性总结，或对话已经积累足够信息时，应创建 Markdown 文件：
-
-```text
-self-exploration-notes/YYYY-MM-DD-stage-map.md
-```
-
-总结应优先帮助用户看清：
-
-- 当前在哪里；
-- 正在被什么生活吸引；
-- 现状与理想之间的差距；
-- 长期可以依靠的底层资产；
-- 下一阶段最小可验证行动。
-
-
+- 调整阶段边界时，优先改对应小 skill，而不是把补丁继续堆回总控文件。
+- 新增模块时，先确认它是否真的只解决一个明确痛点。
+- 如果一个模块开始承担多个目标，应继续拆分。
+- 多轮状态字段建议复用 `references/session-state-schema.md`。
+- 阶段总结建议复用 `references/stage-map-template.md`。
